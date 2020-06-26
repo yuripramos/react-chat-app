@@ -1,3 +1,56 @@
-# react-chat-app
+# React-chat-app
 
-Readme instructions
+[![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
+
+## :octopus: Getting Started
+
+Description
+
+|     | Specs                                                                    |
+| --- | ------------------------------------------------------------------------ |
+| ⚛️  | **React 16.12**. latest stable version of react                          |
+| ✨  | **React Hooks** [React hooks](https://reactjs.org/docs/hooks-intro.html) |
+| 😎  | **TypeScript** JavaScript that scales.                                   |
+
+## :cloud: Installation
+
+Makefiles aren't Windows friendly, if you have minGW64 and whole environment to run the makefile(Unix/macOS) do this:
+
+```sh
+make installation
+make start
+access http://localhost:8080/
+```
+
+If you **don't** have makefile enviroment ready, do this instead :
+
+```sh
+
+npm install or yarn install
+npm run start
+access http://localhost:8080/
+```
+
+**Requires node >= 10.0.0**
+
+## Unit Tests
+
+`npm run test:coverage`
+
+**Coverage Threshold > 70%**
+
+Coverage Tests = 82%.
+
+[Testing Behaviors and not implementation details](https://kentcdodds.com/blog/testing-implementation-details)
+
+## Features
+
+## Roadmap
+
+## :exclamation: Credits
+
+Yuri Ramos
+
+## :scroll: License
+
+MIT
