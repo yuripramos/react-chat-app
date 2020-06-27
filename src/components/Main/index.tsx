@@ -3,13 +3,14 @@ import "./styles.scss";
 import MessageList from "../MessageList/index";
 import { MessagesContext } from "../../store/Messages/index";
 export default () => {
-  const [state] = useContext(MessagesContext);
+  const state: any = useContext(MessagesContext);
 
   const [textValue, setTextValue] = useState("");
 
+  console.log("state messages", state);
   return (
     <Fragment>
-      <MessageList state={state} />
+      <MessageList messages={state.messages} />
       <div className="textField">
         <input
           type="text"
@@ -17,7 +18,10 @@ export default () => {
           value={textValue}
           onChange={e => setTextValue(e.target.value)}
         />
-        <button type="submit"> send </button>
+        <button type="submit" onClick={() => state.sendChatAction(textValue)}>
+          {" "}
+          send{" "}
+        </button>
       </div>
     </Fragment>
   );

@@ -1,16 +1,8 @@
 import React, { createContext, useReducer, useEffect, ReactNode } from "react";
+import io from "socket.io-client";
 
-import { getPosts } from "../../../src/services/api";
-
-// const getLocalStorageState = () => {
-//   const lsState = getStorageObject(STORAGE_ID);
-//   return lsState ? lsState : INITIAL_STATE;
-// };
-
-// const setLocalStorageState = (state: any) =>
-//   setStorageObject(STORAGE_ID, state);
-
-const MessagesContext = createContext([]);
+const MessagesContext = createContext({});
+let socket: any;
 
 type Props = {
   children: ReactNode;
@@ -33,11 +25,19 @@ const stateReducer = (state: any, action: any) => {
   }
 };
 
+const sendChatAction = (socket: any, value: any) => {
+  socket.emit("chat message", value);
+};
+
 const MessagesProvider: React.FC<Props> = ({ children }) => {
-  const valueContext = useReducer(stateReducer, defaultState);
+  const [messageReducer, dispatch] = useReducer(stateReducer, defaultState);
+
+  if (!socket) {
+    socket = io(":3005");
+  }
 
   return (
-    <MessagesContext.Provider value={valueContext}>
+    <MessagesContext.Provider value={{ ...messageReducer, sendChatAction }}>
       {children}
     </MessagesContext.Provider>
   );

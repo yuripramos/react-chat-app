@@ -5,6 +5,6 @@ type Props = {
   children: ReactNode;
 };
 
-export default ({ children }: Props) => (
-  <MessagesProvider>{children}</MessagesProvider>
-);
+export default ({ children }: Props) => {
+  return <MessagesProvider>{children}</MessagesProvider>;
+};
