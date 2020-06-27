@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-
+import React, { useContext, Fragment } from "react";
+import "./styles.scss";
 import MessageList from "../MessageList/index";
 import { MessagesContext } from "../../store/Messages/index";
 import { sortObjectsArrayByKey } from "../../utils/helpers";
@@ -11,5 +11,13 @@ export default () => {
     true
   );
 
-  return <MessageList data={sortedDescPosts} />;
+  return (
+    <Fragment>
+      <MessageList data={sortedDescPosts} />
+      <div className="textField">
+        <input type="text" placeholder="type your message" />
+        <button type="submit"> send </button>
+      </div>
+    </Fragment>
+  );
 };

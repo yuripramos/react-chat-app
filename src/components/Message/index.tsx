@@ -1,29 +1,17 @@
 import React from "react";
-import { getDate } from "../../utils/helpers";
 
-type Post = {
+type Message = {
   data: {
-    title: string;
-    body: string;
-    metadata: {
-      authorId: string;
-      publishedAt: string;
-    };
+    from: string;
+    msg: string;
   };
-  id: string;
 };
 
-export default ({ data: { title, body, metadata }, id }: Post) => {
-  const { authorId, publishedAt } = metadata;
-
+export default ({ data: { from, msg } }: Message) => {
   return (
-    <li className="post" id={id}>
-      <header>
-        <h1>{title}</h1>
-      </header>
-      <main>
-        <p>{body}</p>
-      </main>
+    <li className="post">
+      <span>{from}: </span>
+      <p>{msg}</p>
     </li>
   );
 };
