@@ -1,21 +1,22 @@
-import React, { useContext, Fragment } from "react";
+import React, { useContext, Fragment, useState } from "react";
 import "./styles.scss";
 import MessageList from "../MessageList/index";
 import { MessagesContext } from "../../store/Messages/index";
-import { sortObjectsArrayByKey } from "../../utils/helpers";
 export default () => {
-  const { state: messages }: any = useContext(MessagesContext);
-  const sortedDescPosts = sortObjectsArrayByKey(
-    messages.data,
-    ["metadata", "publishedAt"],
-    true
-  );
+  const [state] = useContext(MessagesContext);
+
+  const [textValue, setTextValue] = useState("");
 
   return (
     <Fragment>
-      <MessageList data={sortedDescPosts} />
+      <MessageList state={state} />
       <div className="textField">
-        <input type="text" placeholder="type your message" />
+        <input
+          type="text"
+          placeholder="type your message"
+          value={textValue}
+          onChange={e => setTextValue(e.target.value)}
+        />
         <button type="submit"> send </button>
       </div>
     </Fragment>
