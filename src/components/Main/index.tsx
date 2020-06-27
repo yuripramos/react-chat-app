@@ -7,7 +7,6 @@ export default () => {
 
   const [textValue, setTextValue] = useState("");
 
-  console.log("state messages", state);
   return (
     <Fragment>
       <MessageList messages={state.messages} />
@@ -18,7 +17,13 @@ export default () => {
           value={textValue}
           onChange={e => setTextValue(e.target.value)}
         />
-        <button type="submit" onClick={() => state.sendChatAction(textValue)}>
+        <button
+          type="submit"
+          onClick={() => {
+            state.sendChatAction({ from: "", msg: textValue });
+            setTextValue("");
+          }}
+        >
           {" "}
           send{" "}
         </button>

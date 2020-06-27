@@ -2,6 +2,7 @@ import React, { createContext, useReducer, useEffect, ReactNode } from "react";
 import io from "socket.io-client";
 
 const MessagesContext = createContext({});
+
 let socket: any;
 
 type Props = {
@@ -19,13 +20,13 @@ const defaultState = {
 const stateReducer = (state: any, action: any) => {
   switch (action.type) {
     case "RECEIVE_MESSAGE":
-      return { ...state, perPage: action.data };
+      return { ...state, messages: action.payload };
     default:
       return state;
   }
 };
 
-const sendChatAction = (socket: any, value: any) => {
+const sendChatAction = (value: any) => {
   socket.emit("chat message", value);
 };
 
@@ -33,7 +34,14 @@ const MessagesProvider: React.FC<Props> = ({ children }) => {
   const [messageReducer, dispatch] = useReducer(stateReducer, defaultState);
 
   if (!socket) {
-    socket = io(":3005");
+    socket = io(":3000");
+    socket.on("chat message", function(msg: any) {
+      console.log("log", { msg });
+      dispatch({
+        type: "RECEIVE_MESSAGE",
+        payload: msg
+      });
+    });
   }
 
   return (
