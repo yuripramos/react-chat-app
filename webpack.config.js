@@ -1,12 +1,12 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: './src/index.tsx',
+  entry: "./src/index.tsx",
   output: {
-    path: path.join(__dirname, '/dist'),
-    filename: 'bundle.js',
-    publicPath: '/',
+    path: path.join(__dirname, "/dist"),
+    filename: "bundle.js",
+    publicPath: "/"
   },
   module: {
     rules: [
@@ -14,36 +14,39 @@ module.exports = {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
-        },
+          loader: "babel-loader"
+        }
       },
       {
         test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: '/node_modules/'
+        use: "ts-loader",
+        exclude: "/node_modules/"
       },
       {
         test: /\.s[ca]ss$/,
         exclude: /node_modules/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        use: ["style-loader", "css-loader", "sass-loader"]
       },
       {
         test: /\.(png|jpg|gif|ico|xml|json)$/,
         exclude: /node_modules/,
-        use: ['file-loader'],
+        use: ["file-loader"]
       },
       {
         test: /\.svg$/,
-        use: ['@svgr/webpack', 'svg-inline-loader'],
-      },
-    ],
+        use: ["@svgr/webpack", "svg-inline-loader"]
+      }
+    ]
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './public/index.html',
-    }),
+      template: "./public/index.html"
+    })
   ],
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx'],
+    extensions: [".ts", ".tsx", ".js", ".jsx"]
   },
+  devServer: {
+    historyApiFallback: true
+  }
 };

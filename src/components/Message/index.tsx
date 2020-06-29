@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 type Message = {
   data: {
@@ -10,8 +10,6 @@ type Message = {
 
 export default ({ data: { from, msg }, username }: Message) => {
   const sameUserMessage = username === from ? "sameUser post" : "post";
-
-  console.log(sameUserMessage);
 
   return (
     <li className={sameUserMessage}>

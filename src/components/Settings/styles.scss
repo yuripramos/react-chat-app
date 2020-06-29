@@ -1,0 +1,15 @@
+section.settings {
+  .settings-title {
+    width: 100%;
+    display: inline-grid;
+  }
+
+  .option-wrapper {
+    padding: 1.5rem;
+    margin: 0.3rem;
+
+    & > label {
+      padding: 0 0.7rem 0 0.2rem;
+    }
+  }
+}
