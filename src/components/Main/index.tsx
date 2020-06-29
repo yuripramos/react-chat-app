@@ -6,6 +6,8 @@ export default () => {
   const state: any = useContext(MessagesContext);
   const [textValue, setTextValue] = useState("");
 
+  console.log("current state", state);
+
   return (
     <Fragment>
       <MessageList messages={state.messages} username={state.username} />

@@ -15,11 +15,7 @@ const ActionType = {
 };
 
 const defaultState = {
-  messages: [
-    { from: "Yuri", msg: "hello text1" },
-    { from: "Yuri", msg: "hello text2 long" },
-    { from: "Robert", msg: "hello text3 very very very long" }
-  ],
+  messages: [] as any,
   username: `guest${Math.floor(Math.random() * 1000)}`
 };
 
@@ -28,7 +24,17 @@ const stateReducer = (state: any, action: any) => {
     case ActionType.RECEIVE_MESSAGE:
       return { ...state, messages: [...state.messages, action.payload] };
     case ActionType.SET_USERNAME:
-      return { ...state, username: action.payload };
+      return {
+        ...state,
+        messages: state.messages.map((message: any, index: number) => {
+          if (message.from === state.username) {
+            console.log("inside redux", message.from);
+            message.from = action.payload;
+          }
+          return message;
+        }),
+        username: action.payload
+      };
     default:
       return state;
   }

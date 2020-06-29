@@ -207,11 +207,15 @@ button {
         }
 
         &.posts li.post {
-          display: inline-flex;
+          display: inline-grid;
           width: 100%;
 
           h1 {
             font-weight: 500;
+          }
+
+          & > span {
+            font-weight: 600;
           }
 
           & > main {
@@ -224,6 +228,12 @@ button {
             font-size: 16px;
             font-weight: 700;
             color: #666;
+          }
+
+          & > .message-wrapper {
+            background: rgba(102, 102, 102, 0.1);
+            border-radius: 7px;
+            padding: 5px 10px;
           }
         }
         &.posts li.post.sameUser {
@@ -244,4 +254,7 @@ button {
 .dark {
   background-color: #333;
   color: #dadada;
+  &.tabs {
+    color: #dadada;
+  }
 }

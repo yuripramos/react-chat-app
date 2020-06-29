@@ -14,7 +14,7 @@ export default ({ data: { from, msg }, username }: Message) => {
   return (
     <li className={sameUserMessage}>
       <span>{from}: &nbsp; </span>
-      <p>{msg}</p>
+      <p className="message-wrapper">{msg}</p>
     </li>
   );
 };
