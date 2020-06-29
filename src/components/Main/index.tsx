@@ -4,12 +4,11 @@ import MessageList from "../MessageList/index";
 import { MessagesContext } from "../../store/Messages/index";
 export default () => {
   const state: any = useContext(MessagesContext);
-
   const [textValue, setTextValue] = useState("");
 
   return (
     <Fragment>
-      <MessageList messages={state.messages} />
+      <MessageList messages={state.messages} username={state.username} />
       <div className="textField">
         <input
           type="text"
@@ -20,7 +19,7 @@ export default () => {
         <button
           type="submit"
           onClick={() => {
-            state.sendChatAction({ from: "", msg: textValue });
+            state.sendChatAction({ from: state.username, msg: textValue });
             setTextValue("");
           }}
         >

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import Message from "../Message/index";
 import NoContent from "../NoContent/index";
@@ -10,9 +10,10 @@ type Props = {
       msg: string;
     }
   ];
+  username: string;
 };
 
-export default ({ messages }: Props) => {
+export default ({ messages, username }: Props) => {
   const hasMsgs = messages.length > 0;
 
   return (
@@ -20,7 +21,7 @@ export default ({ messages }: Props) => {
       {hasMsgs ? (
         <ul className="posts">
           {messages.map((msg, i) => (
-            <Message key={i} data={msg} />
+            <Message key={i} data={msg} username={username} />
           ))}
         </ul>
       ) : (

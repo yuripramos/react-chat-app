@@ -6,6 +6,7 @@ import Loading from "./components/Loading/index";
 import Tabs from "./components/Tabs/index";
 import Store from "./store/index";
 import Main from "./components/Main/index";
+import Settings from "./components/Settings/index";
 import Footer from "./components/Footer/index";
 
 const App = () => (
@@ -17,7 +18,7 @@ const App = () => (
             <Tabs />
             <Switch>
               <Route exact path="/" component={Main} />
-              <Route exact path="/settings" component={Main} />
+              <Route exact path="/settings" component={Settings} />
               <Route render={() => <h1>404</h1>} />
             </Switch>
           </main>
