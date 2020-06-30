@@ -49,14 +49,18 @@ export default ({ changeTheme }: Props) => {
           type="radio"
           id="timeFormat1"
           name="timeFormat"
-          value="12 hours"
+          checked={state.format === "12H"}
+          onChange={e => state.setTimeFormat("12H")}
+          value="12H"
         />
         <label htmlFor="timeFormat1">12 Hours</label>
         <input
           type="radio"
           id="timeFormat2"
           name="timeFormat"
-          value="24 hours"
+          value="24H"
+          checked={state.format === "24H"}
+          onChange={e => state.setTimeFormat("24H")}
         />
         <label htmlFor="timeFormat2">24 Hours</label>
       </div>

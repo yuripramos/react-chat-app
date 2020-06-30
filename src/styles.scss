@@ -27,8 +27,7 @@ a {
 
 html,
 body,
-#root,
-#app {
+#root {
   height: 100%;
 }
 
@@ -60,7 +59,7 @@ button {
     width: 1024px;
 
     @media (min-width: $breakpoint-tablet) and (max-width: $breakpoint-desktop) {
-      max-width: 959px;
+      max-width: 767px;
       width: auto;
     }
     @media (min-width: $breakpoint-smartphones) and (max-width: $breakpoint-tablet) {
@@ -234,6 +233,15 @@ button {
             background: rgba(102, 102, 102, 0.1);
             border-radius: 7px;
             padding: 5px 10px;
+            width: 820px;
+            word-wrap: break-word;
+
+            @media (min-width: $breakpoint-tablet) and (max-width: $breakpoint-desktop) {
+              max-width: 767px;
+            }
+            @media (min-width: $breakpoint-smartphones) and (max-width: $breakpoint-tablet) {
+              max-width: 959px;
+            }
           }
         }
         &.posts li.post.sameUser {
@@ -254,7 +262,12 @@ button {
 .dark {
   background-color: #333;
   color: #dadada;
-  &.tabs {
+  & > main > ul {
     color: #dadada;
+    border: solid 1px #dadada;
+  }
+  & > main > .textField > input,
+  & > main > .textField > button {
+    border: solid 1px #dadada;
   }
 }

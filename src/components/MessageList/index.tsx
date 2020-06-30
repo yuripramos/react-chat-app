@@ -8,6 +8,7 @@ type Props = {
     {
       from: string;
       msg: string;
+      time: Date;
     }
   ];
   username: string;

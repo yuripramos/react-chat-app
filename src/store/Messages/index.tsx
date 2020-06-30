@@ -1,5 +1,6 @@
 import React, { createContext, useReducer, useEffect, ReactNode } from "react";
 import io from "socket.io-client";
+import moment from "moment";
 
 const MessagesContext = createContext({});
 
@@ -11,37 +12,62 @@ type Props = {
 
 const ActionType = {
   RECEIVE_MESSAGE: "RECEIVE_MESSAGE",
-  SET_USERNAME: "SET_USERNAME"
+  SET_USERNAME: "SET_USERNAME",
+  SET_FORMAT: "SET_FORMAT"
 };
 
 const defaultState = {
   messages: [] as any,
-  username: `guest${Math.floor(Math.random() * 1000)}`
+  username: `guest${Math.floor(Math.random() * 1000)}`,
+  format: "12H"
 };
 
 const stateReducer = (state: any, action: any) => {
   switch (action.type) {
     case ActionType.RECEIVE_MESSAGE:
-      return { ...state, messages: [...state.messages, action.payload] };
+      return {
+        ...state,
+        messages: [
+          ...state.messages,
+          {
+            from: action.payload.from,
+            msg: action.payload.msg,
+            time:
+              state.format === "12H"
+                ? moment(action.payload.time).format("LT")
+                : moment(action.payload.time).format("HH:mm")
+          }
+        ]
+      };
     case ActionType.SET_USERNAME:
       return {
         ...state,
         messages: state.messages.map((message: any, index: number) => {
           if (message.from === state.username) {
-            console.log("inside redux", message.from);
             message.from = action.payload;
           }
           return message;
         }),
         username: action.payload
       };
+    case ActionType.SET_FORMAT:
+      return {
+        ...state,
+        messages: state.messages.map((message: any, index: number) => {
+          if (action.payload === "24H") {
+            message.time = moment(message.time).format("HH:mm");
+          }
+          return message;
+        }),
+        format: action.payload
+      };
     default:
       return state;
   }
 };
 
-const sendChatAction = (value: any) => {
-  socket.emit("chat message", value);
+const sendChatAction = (value: any, time: any) => {
+  socket.emit("chat message", value, time);
 };
 
 const MessagesProvider: React.FC<Props> = ({ children }) => {
@@ -59,6 +85,12 @@ const MessagesProvider: React.FC<Props> = ({ children }) => {
       payload: msg
     });
 
+  const setTimeFormat = (format: string) =>
+    dispatch({
+      type: ActionType.SET_FORMAT,
+      payload: format
+    });
+
   if (!socket) {
     socket = io(":3000");
     socket.on("chat message", function(msg: any) {
@@ -68,7 +100,7 @@ const MessagesProvider: React.FC<Props> = ({ children }) => {
 
   return (
     <MessagesContext.Provider
-      value={{ ...messageReducer, sendChatAction, setUsername }}
+      value={{ ...messageReducer, sendChatAction, setUsername, setTimeFormat }}
     >
       {children}
     </MessagesContext.Provider>
