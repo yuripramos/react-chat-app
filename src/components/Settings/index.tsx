@@ -67,7 +67,7 @@ export default ({ changeTheme }: Props) => {
       <div className="option-wrapper">
         <p className="settings-title">Send messages on CTRL + ENTER</p>
         <input type="radio" id="msgsendtype1" name="msgsendtype" value="on" />
-        <label htmlFor="msgsendtype1">on</label>
+        <label htmlFor="msgsendtype1">On</label>
         <input
           type="radio"
           id="msgsendtype2"
@@ -75,7 +75,7 @@ export default ({ changeTheme }: Props) => {
           value="off"
           checked
         />
-        <label htmlFor="msgsendtype2">off</label>
+        <label htmlFor="msgsendtype2">Off</label>
       </div>
     </section>
   );

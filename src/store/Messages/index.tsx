@@ -27,17 +27,7 @@ const stateReducer = (state: any, action: any) => {
     case ActionType.RECEIVE_MESSAGE:
       return {
         ...state,
-        messages: [
-          ...state.messages,
-          {
-            from: action.payload.from,
-            msg: action.payload.msg,
-            time:
-              state.format === "12H"
-                ? moment(action.payload.time).format("LT")
-                : moment(action.payload.time).format("HH:mm")
-          }
-        ]
+        messages: [...state.messages, action.payload]
       };
     case ActionType.SET_USERNAME:
       return {
@@ -53,12 +43,6 @@ const stateReducer = (state: any, action: any) => {
     case ActionType.SET_FORMAT:
       return {
         ...state,
-        messages: state.messages.map((message: any, index: number) => {
-          if (action.payload === "24H") {
-            message.time = moment(message.time).format("HH:mm");
-          }
-          return message;
-        }),
         format: action.payload
       };
     default:

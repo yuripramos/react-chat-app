@@ -10,8 +10,9 @@ export default () => {
     <Fragment>
       <MessageList messages={state.messages} username={state.username} />
       <div className="textField">
-        <input
-          type="text"
+        <textarea
+          rows={4}
+          cols={50}
           placeholder="type your message"
           value={textValue}
           onChange={e => setTextValue(e.target.value)}
