@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./styles.scss";
+import { MessagesContext } from "../../store/Messages/index";
 import { NavLink } from "react-router-dom";
 
 const activeStyle = {
@@ -7,11 +8,18 @@ const activeStyle = {
   fontStyle: "italic"
 };
 const Tabs = () => {
+  const state: any = useContext(MessagesContext);
+  const newMessagesTab = state.isUnreadMessages && "blink";
   return (
     <ul className="tabs">
-      <li>
+      <li className={newMessagesTab}>
         {" "}
-        <NavLink to="/" exact activeStyle={activeStyle}>
+        <NavLink
+          to="/"
+          exact
+          activeStyle={activeStyle}
+          onClick={() => state.setUnreadMessage(false)}
+        >
           Chat
         </NavLink>
       </li>

@@ -14,9 +14,27 @@
     & > a {
       text-decoration: none;
     }
+
+    &.blink {
+      text-decoration: blink;
+      animation-name: blinker;
+      animation-duration: 0.6s;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in-out;
+      animation-direction: alternate;
+    }
   }
 }
 
 .tabs .dark {
   border: solid 2px #fff;
+}
+
+@keyframes blinker {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }

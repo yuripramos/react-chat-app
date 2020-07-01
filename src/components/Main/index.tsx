@@ -7,15 +7,15 @@ import React, {
 } from "react";
 import "./styles.scss";
 import "emoji-mart/css/emoji-mart.css";
-
+import { Picker } from "emoji-mart";
 import MessageList from "../MessageList/index";
 import { MessagesContext } from "../../store/Messages/index";
-import { Picker } from "emoji-mart";
 import AssIcon from "../../assets/images/peach.png";
 export default () => {
   const state: any = useContext(MessagesContext);
   const [textValue, setTextValue] = useState("");
   const [isEmojiEnabled, setIsEmojiEnabled] = useState(false);
+
   const toggleEmoji = () => setIsEmojiEnabled(!isEmojiEnabled);
 
   const myStateRef = useRef(textValue);

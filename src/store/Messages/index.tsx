@@ -14,14 +14,16 @@ const ActionType = {
   RECEIVE_MESSAGE: "RECEIVE_MESSAGE",
   SET_USERNAME: "SET_USERNAME",
   SET_FORMAT: "SET_FORMAT",
-  SET_SENDING_METHOD: "SET_SENDING_METHOD"
+  SET_SENDING_METHOD: "SET_SENDING_METHOD",
+  SET_UNREAD_MESSAGE: "SET_UNREAD_MESSAGE"
 };
 
 const defaultState = {
   messages: [] as any,
   username: `guest${Math.floor(Math.random() * 1000)}`,
   format: "12H",
-  sendingMethod: "keypress"
+  sendingMethod: "keypress",
+  isUnreadMessages: false
 };
 
 const stateReducer = (state: any, action: any) => {
@@ -52,6 +54,11 @@ const stateReducer = (state: any, action: any) => {
         ...state,
         sendingMethod: action.payload
       };
+    case ActionType.SET_UNREAD_MESSAGE:
+      return {
+        ...state,
+        isUnreadMessages: action.payload
+      };
     default:
       return state;
   }
@@ -59,6 +66,7 @@ const stateReducer = (state: any, action: any) => {
 
 const sendChatAction = (value: any, time: any) => {
   socket.emit("chat message", value, time);
+  socket.emit("new message alert", 1);
 };
 
 const MessagesProvider: React.FC<Props> = ({ children }) => {
@@ -74,6 +82,11 @@ const MessagesProvider: React.FC<Props> = ({ children }) => {
     dispatch({
       type: ActionType.RECEIVE_MESSAGE,
       payload: msg
+    });
+  const setUnreadMessage = (isUnread: boolean) =>
+    dispatch({
+      type: ActionType.SET_UNREAD_MESSAGE,
+      payload: isUnread
     });
 
   const setSendingMethod = (method: string) =>
@@ -92,6 +105,9 @@ const MessagesProvider: React.FC<Props> = ({ children }) => {
     socket = io(":3000");
     socket.on("chat message", function(msg: any) {
       setMessage(msg);
+      window.location.pathname !== "/"
+        ? setUnreadMessage(true)
+        : setUnreadMessage(false);
     });
   }
 
@@ -102,7 +118,8 @@ const MessagesProvider: React.FC<Props> = ({ children }) => {
         sendChatAction,
         setUsername,
         setTimeFormat,
-        setSendingMethod
+        setSendingMethod,
+        setUnreadMessage
       }}
     >
       {children}

@@ -7,9 +7,8 @@ app.get("/", (req, res) => {
 });
 
 io.on("connection", function(socket) {
-  console.log("a user connected");
+  console.log("user connected");
   socket.on("chat message", msg => {
-    console.log("message backend", msg);
     io.emit("chat message", msg);
   });
 });
