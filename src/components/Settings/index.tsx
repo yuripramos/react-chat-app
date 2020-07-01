@@ -50,7 +50,7 @@ export default ({ changeTheme }: Props) => {
           id="timeFormat1"
           name="timeFormat"
           checked={state.format === "12H"}
-          onChange={e => state.setTimeFormat("12H")}
+          onChange={() => state.setTimeFormat("12H")}
           value="12H"
         />
         <label htmlFor="timeFormat1">12 Hours</label>
@@ -60,20 +60,28 @@ export default ({ changeTheme }: Props) => {
           name="timeFormat"
           value="24H"
           checked={state.format === "24H"}
-          onChange={e => state.setTimeFormat("24H")}
+          onChange={() => state.setTimeFormat("24H")}
         />
         <label htmlFor="timeFormat2">24 Hours</label>
       </div>
       <div className="option-wrapper">
         <p className="settings-title">Send messages on CTRL + ENTER</p>
-        <input type="radio" id="msgsendtype1" name="msgsendtype" value="on" />
+        <input
+          type="radio"
+          id="msgsendtype1"
+          name="msgsendtype"
+          value="on"
+          checked={state.sendingMethod === "keypress"}
+          onChange={() => state.setSendingMethod("keypress")}
+        />
         <label htmlFor="msgsendtype1">On</label>
         <input
           type="radio"
           id="msgsendtype2"
           name="msgsendtype"
           value="off"
-          checked
+          checked={state.sendingMethod === "submit"}
+          onChange={() => state.setSendingMethod("submit")}
         />
         <label htmlFor="msgsendtype2">Off</label>
       </div>

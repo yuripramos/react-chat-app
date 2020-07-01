@@ -13,13 +13,15 @@ type Props = {
 const ActionType = {
   RECEIVE_MESSAGE: "RECEIVE_MESSAGE",
   SET_USERNAME: "SET_USERNAME",
-  SET_FORMAT: "SET_FORMAT"
+  SET_FORMAT: "SET_FORMAT",
+  SET_SENDING_METHOD: "SET_SENDING_METHOD"
 };
 
 const defaultState = {
   messages: [] as any,
   username: `guest${Math.floor(Math.random() * 1000)}`,
-  format: "12H"
+  format: "12H",
+  sendingMethod: "keypress"
 };
 
 const stateReducer = (state: any, action: any) => {
@@ -45,6 +47,11 @@ const stateReducer = (state: any, action: any) => {
         ...state,
         format: action.payload
       };
+    case ActionType.SET_SENDING_METHOD:
+      return {
+        ...state,
+        sendingMethod: action.payload
+      };
     default:
       return state;
   }
@@ -69,6 +76,12 @@ const MessagesProvider: React.FC<Props> = ({ children }) => {
       payload: msg
     });
 
+  const setSendingMethod = (method: string) =>
+    dispatch({
+      type: ActionType.SET_SENDING_METHOD,
+      payload: method
+    });
+
   const setTimeFormat = (format: string) =>
     dispatch({
       type: ActionType.SET_FORMAT,
@@ -84,7 +97,13 @@ const MessagesProvider: React.FC<Props> = ({ children }) => {
 
   return (
     <MessagesContext.Provider
-      value={{ ...messageReducer, sendChatAction, setUsername, setTimeFormat }}
+      value={{
+        ...messageReducer,
+        sendChatAction,
+        setUsername,
+        setTimeFormat,
+        setSendingMethod
+      }}
     >
       {children}
     </MessagesContext.Provider>
