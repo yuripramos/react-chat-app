@@ -4,13 +4,7 @@ import Message from "../Message/index";
 import NoContent from "../NoContent/index";
 
 interface Props {
-  messages: [
-    {
-      from: string;
-      msg: string;
-      time: Date;
-    }
-  ];
+  messages: any[];
   username: string;
   setDynamicHeight: (height: number) => void;
 }

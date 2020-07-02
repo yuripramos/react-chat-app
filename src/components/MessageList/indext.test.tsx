@@ -3,7 +3,6 @@ import { render, cleanup } from "@testing-library/react";
 import MessageList from "./index";
 
 afterEach(cleanup);
-
 describe("<MessageList />", () => {
   const requiredProps = {
     messages: [
