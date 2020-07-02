@@ -3,7 +3,7 @@ import useDimensions from "react-use-dimensions";
 import Message from "../Message/index";
 import NoContent from "../NoContent/index";
 
-type Props = {
+interface Props {
   messages: [
     {
       from: string;
@@ -13,7 +13,7 @@ type Props = {
   ];
   username: string;
   setDynamicHeight: (height: number) => void;
-};
+}
 
 export default ({ messages, username, setDynamicHeight }: Props) => {
   const hasMsgs = messages.length > 0;

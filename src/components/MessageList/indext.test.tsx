@@ -1,12 +1,11 @@
 import React from "react";
-import Store from "../../store/index";
 import { render, cleanup } from "@testing-library/react";
-import Main from "./index";
+import MessageList from "./index";
 
 afterEach(cleanup);
 
-describe("<Main />", () => {
-  const store = {
+describe("<MessageList />", () => {
+  const requiredProps = {
     messages: [
       {
         from: "User0001",
@@ -14,17 +13,13 @@ describe("<Main />", () => {
         time: 3421421421
       }
     ],
-    username: "Big bunnt",
+    username: "Jon Johnes",
     setDynamicHeight: () => {}
   };
 
   it("Should render correctly", () => {
     expect(() => {
-      render(
-        <Store>
-          <Main />
-        </Store>
-      );
+      render(<MessageList {...requiredProps} />);
     }).not.toThrow();
   });
 });

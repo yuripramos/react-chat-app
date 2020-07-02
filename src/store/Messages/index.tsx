@@ -1,7 +1,6 @@
 import React, { createContext, useReducer, useEffect, ReactNode } from "react";
 import { useMessagesState } from "./state";
 import io from "socket.io-client";
-import moment from "moment";
 
 const MessagesContext = createContext({});
 
