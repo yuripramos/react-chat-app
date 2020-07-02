@@ -50,12 +50,12 @@ access http://localhost:8080/
 
 ## Roadmap
 
-**Release 0.1** (current) - First release of the app
-**Release 0.2** - Save settings in localStorage and add support to unread chat notification
-**Release 0.3** - Internationalization (support for english and spanish)
-**Release 0.4** - Improvements in UI and transistions
-**Release 0.5** - Link Parser (Youtube and Images thumb)
-**Release 0.6** - Unread messages count in the chat tab
+**Release 0.1** (current) - First release of the app</br>
+**Release 0.2** - Save settings in localStorage and add support to unread chat notification</br>
+**Release 0.3** - Internationalization (support for english and spanish)</br>
+**Release 0.4** - Improvements in UI and transistions</br>
+**Release 0.5** - Link Parser (Youtube and Images thumb)</br>
+**Release 0.6** - Unread messages count in the chat tab</br>
 
 ## :exclamation: Credits
 
