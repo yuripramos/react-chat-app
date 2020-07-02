@@ -58,11 +58,11 @@ export default () => {
 
   return (
     <Fragment>
-      <MessageList
+      {/* <MessageList
         messages={state.messages}
         username={state.username}
         setDynamicHeight={state.setDynamicHeight}
-      />
+      /> */}
       <div className="textField">
         {isEmojiEnabled && (
           <div

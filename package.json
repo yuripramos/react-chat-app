@@ -103,7 +103,8 @@
       "src/**/*.{js, ts,tsx, jsx}",
       "!src/utils/*.{js, ts,tsx, jsx}",
       "!src/styles/**/*.{js, ts,tsx, jsx}",
-      "!src/index.tsx"
+      "!src/index.tsx",
+      "!src/assets/**/*.{js, ts,tsx, jsx}"
     ],
     "reporters": [
       "default"
