@@ -4,50 +4,58 @@
 
 ## :octopus: Getting Started
 
-Description
+Simple chat application between users made with Socket.io, React and Typescript. This is project is responsive.
 
-|     | Specs                                                                    |
-| --- | ------------------------------------------------------------------------ |
-| ⚛️  | **React 16.12**. latest stable version of react                          |
-| ✨  | **React Hooks** [React hooks](https://reactjs.org/docs/hooks-intro.html) |
-| 😎  | **TypeScript** JavaScript that scales.                                   |
+|     | Specs                                                                                                     |
+| --- | --------------------------------------------------------------------------------------------------------- |
+| ⚛️  | **React 16.12**. latest stable version of react                                                           |
+| ✨  | **React Hooks** [React hooks](https://reactjs.org/docs/hooks-intro.html)                                  |
+| 😎  | **TypeScript** JavaScript that scales.                                                                    |
+| 🌐  | **Context API** data through the component tree without having to pass props down manually at every level |
+| 🔓  | **Socket.io** Real-time, bidirectional and event-based communication.                                     |
 
 ## :cloud: Installation
 
-Makefiles aren't Windows friendly, if you have minGW64 and whole environment to run the makefile(Unix/macOS) do this:
-
 ```sh
-make installation
-make start
-access http://localhost:8080/
+npm install or yarn
+node src/server/index.js
 ```
 
-If you **don't** have makefile enviroment ready, do this instead :
+open a new tab in your terminal and:
 
 ```sh
-
-npm install or yarn install
-npm run start
+npm run start OR yarn start
 access http://localhost:8080/
 ```
-
-comments 1: Due to projects restrictions of the usage of CSS preprocessors and not CSS-in-JS there's a few approaches like refs inside the message container that was not to solve in the best way....
 
 **Requires node >= 10.0.0**
 
 ## Unit Tests
 
-`npm run test:coverage`
-
-**Coverage Threshold > 70%**
-
-Coverage Tests = 82%.
+`npm run test`
 
 [Testing Behaviors and not implementation details](https://kentcdodds.com/blog/testing-implementation-details)
 
 ## Features
 
+```
+ 1. [x] Socket.io Chat interface
+ 2. [x] Chat box displaying name and date time
+ 3. [x] Blink tab when you have unread messages
+ 4. [x] Modify username in settings
+ 5. [x] Toggle to Dark mode
+ 6. [x] Toggle Clock display
+ 7. [x] Enable send messages on CTRL + ENTER
+```
+
 ## Roadmap
+
+**Release 0.1** (current) - First release of the app
+**Release 0.2** - Save settings in localStorage and add support to unread chat notification
+**Release 0.3** - Internationalization (support for english and spanish)
+**Release 0.4** - Improvements in UI and transistions
+**Release 0.5** - Link Parser (Youtube and Images thumb)
+**Release 0.6** - Unread messages count in the chat tab
 
 ## :exclamation: Credits
 
@@ -56,3 +64,5 @@ Yuri Ramos
 ## :scroll: License
 
 MIT
+
+Due to projects restrictions of the usage of CSS preprocessors and not CSS-in-JS there's a few approaches like refs inside the message container that I was not able to solve in the best way....
