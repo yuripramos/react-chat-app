@@ -6,18 +6,6 @@ import Main from "./index";
 afterEach(cleanup);
 
 describe("<Main />", () => {
-  const store = {
-    messages: [
-      {
-        from: "User0001",
-        msg: "Hello bunny",
-        time: 3421421421
-      }
-    ],
-    username: "Big bunnt",
-    setDynamicHeight: () => {}
-  };
-
   it("Should render correctly", () => {
     expect(() => {
       render(

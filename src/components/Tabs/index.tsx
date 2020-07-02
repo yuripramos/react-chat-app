@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import "./styles.scss";
 import { MessagesContext } from "../../store/Messages/index";
-import { NavLink, BrowserRouter } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const activeStyle = {
   borderBottom: "solid 2px rgb(187, 46, 31)",
