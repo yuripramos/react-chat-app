@@ -31,6 +31,8 @@ npm run start
 access http://localhost:8080/
 ```
 
+comments 1: Due to projects restrictions of the usage of CSS preprocessors and not CSS-in-JS there's a few approaches like refs inside the message container that was not to solve in the best way....
+
 **Requires node >= 10.0.0**
 
 ## Unit Tests

@@ -11,6 +11,7 @@ import { Picker } from "emoji-mart";
 import MessageList from "../MessageList/index";
 import { MessagesContext } from "../../store/Messages/index";
 import AssIcon from "../../assets/images/peach.png";
+
 export default () => {
   const state: any = useContext(MessagesContext);
   const [textValue, setTextValue] = useState("");
@@ -19,7 +20,6 @@ export default () => {
   const toggleEmoji = () => setIsEmojiEnabled(!isEmojiEnabled);
 
   const myStateRef = useRef(textValue);
-
   const setMyState = (data: any) => {
     myStateRef.current = data;
     setTextValue(data);
@@ -58,11 +58,20 @@ export default () => {
 
   return (
     <Fragment>
-      <MessageList messages={state.messages} username={state.username} />
-
+      <MessageList
+        messages={state.messages}
+        username={state.username}
+        setDynamicHeight={state.setDynamicHeight}
+      />
       <div className="textField">
         {isEmojiEnabled && (
-          <div className="emoji-list-wrapper">
+          <div
+            className="emoji-list-wrapper"
+            style={{
+              top: `calc(${state.height - 380}px)`,
+              transition: "all ease 0.8s"
+            }}
+          >
             <Picker onSelect={addEmoji} />
           </div>
         )}

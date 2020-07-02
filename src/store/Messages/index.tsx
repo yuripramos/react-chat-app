@@ -24,7 +24,8 @@ const MessagesProvider: React.FC<Props> = ({ children }) => {
       setMessage,
       setUnreadMessage,
       setSendingMethod,
-      setTimeFormat
+      setTimeFormat,
+      setDynamicHeight
     }
   } = useMessagesState();
 
@@ -46,7 +47,8 @@ const MessagesProvider: React.FC<Props> = ({ children }) => {
         setUsername,
         setTimeFormat,
         setSendingMethod,
-        setUnreadMessage
+        setUnreadMessage,
+        setDynamicHeight
       }}
     >
       {children}

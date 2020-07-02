@@ -5,7 +5,8 @@ const ActionType = {
   SET_USERNAME: "SET_USERNAME",
   SET_FORMAT: "SET_FORMAT",
   SET_SENDING_METHOD: "SET_SENDING_METHOD",
-  SET_UNREAD_MESSAGE: "SET_UNREAD_MESSAGE"
+  SET_UNREAD_MESSAGE: "SET_UNREAD_MESSAGE",
+  SET_DYNAMIC_HEIGHT: "SET_DYNAMIC_HEIGHT"
 };
 
 const defaultState = {
@@ -13,7 +14,8 @@ const defaultState = {
   username: `guest${Math.floor(Math.random() * 1000)}`,
   format: "12H",
   sendingMethod: "keypress",
-  isUnreadMessages: false
+  isUnreadMessages: false,
+  height: undefined as number
 };
 
 interface MessageState {
@@ -57,6 +59,11 @@ const stateReducer = (state: any, action: any) => {
         ...state,
         isUnreadMessages: action.payload
       };
+    case ActionType.SET_DYNAMIC_HEIGHT:
+      return {
+        ...state,
+        height: action.payload
+      };
     default:
       return state;
   }
@@ -72,6 +79,11 @@ export const useMessagesState: () => {
     dispatch({
       type: ActionType.SET_USERNAME,
       payload: username
+    });
+  const setDynamicHeight = (height: number) =>
+    dispatch({
+      type: ActionType.SET_DYNAMIC_HEIGHT,
+      payload: height
     });
 
   const setMessage = (msg: any) =>
@@ -104,7 +116,8 @@ export const useMessagesState: () => {
       setMessage,
       setUnreadMessage,
       setSendingMethod,
-      setTimeFormat
+      setTimeFormat,
+      setDynamicHeight
     }
   };
 };
@@ -115,4 +128,5 @@ interface StateModifiers {
   setUnreadMessage: (isUnread: boolean) => void;
   setSendingMethod: (method: string) => void;
   setTimeFormat: (format: string) => void;
+  setDynamicHeight: (height: number) => void;
 }

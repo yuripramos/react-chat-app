@@ -11,5 +11,12 @@ section.settings {
     & > label {
       padding: 0 0.7rem 0 0.2rem;
     }
+
+    & input[type="text"] {
+      width: 100%;
+      height: 30px;
+      border: solid 1px #ccc;
+      padding: 0 3px;
+    }
   }
 }
