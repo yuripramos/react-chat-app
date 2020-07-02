@@ -8,12 +8,14 @@
     "node": ">=10.0.0"
   },
   "dependencies": {
+    "@testing-library/react-hooks": "^3.3.0",
     "@types/enzyme": "^3.10.5",
     "@types/enzyme-adapter-react-16": "^1.0.6",
     "@types/react-router": "^5.1.8",
     "@types/react-router-dom": "^5.1.5",
     "emoji-mart": "^3.0.0",
     "express": "^4.17.1",
+    "history": "^5.0.0",
     "moment": "^2.27.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
@@ -95,14 +97,13 @@
       "enzyme-to-json/serializer"
     ],
     "transformIgnorePatterns": [
-      "/node_modules/",
-      "/my-custom-transform/"
+      "/node_modules/"
     ],
     "collectCoverage": true,
     "collectCoverageFrom": [
       "src/**/*.{js, ts,tsx, jsx}",
       "!src/utils/*.{js, ts,tsx, jsx}",
-      "!src/styles/**/*.{js, ts,tsx, jsx}",
+      "!src/server/*.{js, ts,tsx, jsx}",
       "!src/index.tsx",
       "!src/assets/**/*.{js, ts,tsx, jsx}"
     ],

@@ -19,11 +19,12 @@ const defaultState = {
 };
 
 interface MessageState {
-  loading: boolean;
-  baseTicket: any;
-  showPreviousDetection: boolean;
-  previousDetectionDate: number | null;
-  previousDetection: any;
+  messages: [];
+  username: string;
+  format: string;
+  sendingMethod: string;
+  isUnreadMessages: boolean;
+  height: number;
 }
 
 const stateReducer = (state: any, action: any) => {

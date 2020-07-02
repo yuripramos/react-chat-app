@@ -30,6 +30,7 @@ export default ({ changeTheme }: Props) => {
           name="theme"
           value="light"
           checked={theme === "light"}
+          data-testid="light"
           onChange={() => changeTheme("light")}
         />
         <label htmlFor="theme1">💡</label>
@@ -38,6 +39,7 @@ export default ({ changeTheme }: Props) => {
           id="theme2"
           name="theme"
           value="dark"
+          data-testid="dark"
           checked={theme === "dark"}
           onChange={() => changeTheme("dark")}
         />

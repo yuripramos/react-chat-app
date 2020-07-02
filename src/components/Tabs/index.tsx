@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import "./styles.scss";
 import { MessagesContext } from "../../store/Messages/index";
-import { NavLink } from "react-router-dom";
+import { NavLink, BrowserRouter } from "react-router-dom";
 
 const activeStyle = {
   borderBottom: "solid 2px rgb(187, 46, 31)",
@@ -10,8 +10,9 @@ const activeStyle = {
 const Tabs = () => {
   const state: any = useContext(MessagesContext);
   const newMessagesTab = state.isUnreadMessages && "blink";
+
   return (
-    <ul className="tabs">
+    <ul className="tabs" data-testid="menu">
       <li className={newMessagesTab}>
         {" "}
         <NavLink
