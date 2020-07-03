@@ -4,7 +4,7 @@
 
 ## :octopus: Getting Started
 
-Simple chat application between users made with Socket.io, React and Typescript. This is project is responsive.
+Simple chat application between users made with Socket.io, React and Typescript. This project is responsive.
 
 |     | Specs                                                                                                     |
 | --- | --------------------------------------------------------------------------------------------------------- |
