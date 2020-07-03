@@ -2,9 +2,11 @@
 
 [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
 
-## :octopus: Getting Started
+## :octopus: Getting Started and How it works
 
 Simple chat application between users made with Socket.io, React and Typescript. This project is responsive.
+
+Every new tab opened is created a new user(with a random username), to see the application in action open 2 tabs and send messages between them.
 
 |     | Specs                                                                                                     |
 | --- | --------------------------------------------------------------------------------------------------------- |
@@ -46,6 +48,14 @@ access http://localhost:8080/
  5. [x] Toggle to Dark mode
  6. [x] Toggle Clock display
  7. [x] Enable send messages on CTRL + ENTER
+```
+
+## Build
+
+```sh
+npm run build OR yarn build
+serve the folder /dist
+access http://localhost:8080/
 ```
 
 ## Roadmap
