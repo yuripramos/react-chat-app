@@ -1,4 +1,5 @@
-import React, { createContext, useReducer, useEffect, ReactNode } from "react";
+import React, { useReducer } from "react";
+import { MessageType } from "../../model/Message";
 
 const ActionType = {
   RECEIVE_MESSAGE: "RECEIVE_MESSAGE",
@@ -37,7 +38,7 @@ const stateReducer = (state: any, action: any) => {
     case ActionType.SET_USERNAME:
       return {
         ...state,
-        messages: state.messages.map((message: any, index: number) => {
+        messages: state.messages.map((message: MessageType) => {
           if (message.from === state.username) {
             message.from = action.payload;
           }
@@ -81,6 +82,7 @@ export const useMessagesState: () => {
       type: ActionType.SET_USERNAME,
       payload: username
     });
+
   const setDynamicHeight = (height: number) =>
     dispatch({
       type: ActionType.SET_DYNAMIC_HEIGHT,
@@ -92,6 +94,7 @@ export const useMessagesState: () => {
       type: ActionType.RECEIVE_MESSAGE,
       payload: msg
     });
+
   const setUnreadMessage = (isUnread: boolean) =>
     dispatch({
       type: ActionType.SET_UNREAD_MESSAGE,

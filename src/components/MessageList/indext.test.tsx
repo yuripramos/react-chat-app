@@ -9,7 +9,7 @@ describe("<MessageList />", () => {
       {
         from: "User0001",
         msg: "Hello bunny",
-        time: 3421421421
+        time: new Date("December 17, 1995 03:24:00")
       }
     ],
     username: "Jon Johnes",

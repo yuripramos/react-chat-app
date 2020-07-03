@@ -39,7 +39,7 @@ access http://localhost:8080/
 ## Features
 
 ```
- 1. [x] Socket.io Chat interface
+ 1. [x] Socket.io chat interface
  2. [x] Chat box displaying name and date time
  3. [x] Blink tab when you have unread messages
  4. [x] Modify username in settings

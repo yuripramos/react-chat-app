@@ -2,9 +2,10 @@ import React, { useEffect } from "react";
 import useDimensions from "react-use-dimensions";
 import Message from "../Message/index";
 import NoContent from "../NoContent/index";
+import { MessageType } from "../../model/Message";
 
 interface Props {
-  messages: any[];
+  messages: MessageType[];
   username: string;
   setDynamicHeight: (height: number) => void;
 }

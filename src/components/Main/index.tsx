@@ -12,6 +12,9 @@ import MessageList from "../MessageList/index";
 import { MessagesContext } from "../../store/Messages/index";
 import AssIcon from "../../assets/images/peach.png";
 
+type InputEvent = React.ChangeEvent<HTMLInputElement>;
+type ButtonEvent = React.MouseEvent<HTMLButtonElement>;
+
 export default () => {
   const state: any = useContext(MessagesContext);
   const [textValue, setTextValue] = useState("");
@@ -35,7 +38,7 @@ export default () => {
   useEffect(() => {
     if (state.sendingMethod === "keypress") {
       let keysPressed: any = {};
-      const listener = (event: any) => {
+      const listener = (event: KeyboardEvent) => {
         keysPressed[event.key] = true;
         if (keysPressed["Control"] && keysPressed["Enter"]) {
           state.sendChatAction({

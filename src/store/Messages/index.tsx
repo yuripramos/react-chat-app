@@ -1,6 +1,7 @@
-import React, { createContext, useReducer, useEffect, ReactNode } from "react";
+import React, { createContext, ReactNode } from "react";
 import { useMessagesState } from "./state";
 import io from "socket.io-client";
+import { MessageType } from "../../model/Message";
 
 const MessagesContext = createContext({});
 
@@ -10,7 +11,7 @@ type Props = {
   children: ReactNode;
 };
 
-const sendChatAction = (value: any, time: any) => {
+const sendChatAction = (value: string, time: Date) => {
   socket.emit("chat message", value, time);
   socket.emit("new message alert", 1);
 };
@@ -30,7 +31,7 @@ const MessagesProvider: React.FC<Props> = ({ children }) => {
 
   if (!socket) {
     socket = io(":3000");
-    socket.on("chat message", function(msg: any) {
+    socket.on("chat message", function(msg: MessageType) {
       setMessage(msg);
       window.location.pathname !== "/"
         ? setUnreadMessage(true)
