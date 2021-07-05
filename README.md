@@ -1,7 +1,8 @@
 # React-chat-app
 
 [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
-![image](https://user-images.githubusercontent.com/7452143/124510235-c3419a00-dda9-11eb-8ab3-5e96c7bd1753.png)
+
+![image](https://user-images.githubusercontent.com/7452143/124511728-33055400-ddad-11eb-914f-4115e66abac6.png)
 
 ## :octopus: Getting Started and How it works
 
