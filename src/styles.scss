@@ -271,9 +271,9 @@ button {
   }
   & > main > .textField > input,
   & > main > .textField > button {
+    background: none;
     border: 0.1em solid #ffffff;
     color: #ffffff;
-    background: none;
     &:hover {
       color: #ffffff;
       background-color: #000;
