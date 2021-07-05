@@ -1,16 +1,16 @@
 # React-chat-app
 
 [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
+![image](https://user-images.githubusercontent.com/7452143/124510235-c3419a00-dda9-11eb-8ab3-5e96c7bd1753.png)
 
 ## :octopus: Getting Started and How it works
 
 Simple chat application between users made with Socket.io, React and Typescript. This project is responsive.
 
-Every new tab opened is created a new user(with a random username), to see the application in action open 2 tabs and send messages between them.
+Every new tab opened is created a new user (with a random username), to see the application in action open 2 tabs and send messages between them.
 
 |     | Specs                                                                                                     |
 | --- | --------------------------------------------------------------------------------------------------------- |
-| ⚛️  | **React 16.12**. latest stable version of react                                                           |
 | ✨  | **React Hooks** [React hooks](https://reactjs.org/docs/hooks-intro.html)                                  |
 | 😎  | **TypeScript** JavaScript that scales.                                                                    |
 | 🌐  | **Context API** data through the component tree without having to pass props down manually at every level |
@@ -75,4 +75,3 @@ Yuri Ramos
 
 MIT
 
-Due to projects restrictions of the usage of CSS preprocessors and not CSS-in-JS there's a few approaches like refs inside the message container that I was not able to solve in the best way....
